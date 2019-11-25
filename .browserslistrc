@@ -1,0 +1,20 @@
+# Browsers with dynamic import() support
+
+chrome >= 64
+firefox >= 67
+safari >= 11.1
+ios >= 11
+opera >= 50
+samsung >= 8.2
+
+# Legacy browsers that we still support. Use enironment BROWSERSLIST_ENV=legacy
+# Build and serve of legacy bundle is disabled in this demo
+# [legacy]
+# edge >= 12
+# chrome >= 41
+# firefox >= 52
+# safari >= 5.1
+# ios >= 8
+# opera >= 50
+# samsung >= 7.2
+# android >= 76

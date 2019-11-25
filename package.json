@@ -1,0 +1,35 @@
+{
+  "name": "esmdynamic",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "app/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/plugin-transform-flow-strip-types": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/register": "^7.7.4",
+    "@modular-css/rollup": "^25.2.0",
+    "autoprefixer": "^9.7.2",
+    "core-js": "3",
+    "express": "^4.17.1",
+    "flow-bin": "^0.112.0",
+    "modular-css": "^8.1.1",
+    "postcss": "^7.0.23",
+    "postcss-load-config": "^2.1.0",
+    "preact": "^10.0.5",
+    "preact-render-to-string": "^5.1.1",
+    "rollup": "^1.27.5",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^5.1.2"
+  },
+  "scripts": {
+    "start": "NODE_ENV=production node -r @babel/register backend/server.js",
+    "esstart": "NODE_ENV=production node --experimental-loader=./backend/esmloader.js ./backend/server.js",
+    "dev": "NODE_ENV=development node -r @babel/register backend/server.js",
+    "esdev": "NODE_ENV=development node --experimental-loader=./backend/esmloader.js ./backend/server.js",
+    "build": "rollup -c"
+  }
+}

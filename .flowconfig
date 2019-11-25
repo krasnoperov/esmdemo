@@ -1,0 +1,17 @@
+[ignore]
+<PROJECT_ROOT>/build
+<PROJECT_ROOT>/tools
+<PROJECT_ROOT>/*.config.js
+
+[include]
+<PROJECT_ROOT>/src
+
+[libs]
+<PROJECT_ROOT>/node_modules/*
+
+[lints]
+
+[options]
+; fix Cannot resolve module error in WS
+module.name_mapper='^src\/\(.*\)$' -> '<PROJECT_ROOT>/src/\1'
+module.system=haste
