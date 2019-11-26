@@ -1,13 +1,8 @@
 # Universal app with ES Modules
 
-Universal preact application with:
- * CSS Modules
- * Bundled images
- * Flow types
+The goal of this repo is to find a way how to run the same code with ES Modules imports both on client and server - without babel and CJS requires. Check opened issues for progress.
 
-Rollup is used to build code with ES modules for client-side. 
-
-Babel is used to process ESM imports and strip flow types on server-side.
+The central part is universal preact application with CSS Modules, bundled images, and Flow types. The client bundle is build with Rollup. On the server, Babel processes code with ES Modules, and CJS Loader provides class names of CSS Modules and URLs for bundled images.
 
 ## Run
 
