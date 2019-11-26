@@ -11,10 +11,10 @@ import styles from './App.css'
 // On server: url is taken from build/static/static.json assets by module loader
 import image from './images/nodejs-icon.svg'
 
-// NOTE: type declaration must be stripped from code before execution
-type Props = {}
+// Type declaration must be stripped from code before execution
+// type Props = {}
 
-export class App extends Component<Props> {
+export class App extends Component {
   render () {
     return (
       h('div', { className: styles.app },
