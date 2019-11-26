@@ -26,9 +26,9 @@
   },
   "scripts": {
     "start": "NODE_ENV=production node -r @babel/register backend/server.js",
-    "esstart": "NODE_ENV=production node --experimental-loader=./backend/esmloader.js ./backend/server.js",
+    "esstart": "NODE_ENV=production ESM_ENABLED=yes node --experimental-loader=./backend/esmloader.js ./backend/server.js",
     "dev": "NODE_ENV=development node -r @babel/register backend/server.js",
-    "esdev": "NODE_ENV=development node --experimental-loader=./backend/esmloader.js ./backend/server.js",
+    "esdev": "NODE_ENV=development  ESM_ENABLED=yes node --experimental-loader=./backend/esmloader.js ./backend/server.js",
     "build": "rollup -c"
   },
   "engines": {

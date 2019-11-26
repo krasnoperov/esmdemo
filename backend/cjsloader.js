@@ -8,6 +8,11 @@ import { loadAssetsMeta, BASE_PATH } from './loadAssetsMeta.js'
 
 export default function () {
 
+  if (process.env.ESM_ENABLED === 'yes') {
+    // Do not try yo alter require.extensions with ES Modules
+    return
+  }
+
   const staticFiles = loadAssetsMeta('build/static/static.json')
   const resolver = (module, filename) =>
     module._compile(`module.exports = '${staticFiles[path.relative(BASE_PATH, filename)] || ''}'`, filename)

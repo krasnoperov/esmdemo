@@ -6,6 +6,7 @@ Universal preact application with:
  * Flow types
 
 Rollup is used to build code with ES modules for client-side. 
+
 Babel is used to process ESM imports and strip flow types on server-side.
 
 ## Run
@@ -26,28 +27,23 @@ Install dependencies:
     npm run start
     
     # open demo
-    npm run http://localhost:3000/
+    open http://localhost:3000/
 
 ### Run with ESM 
 
-It would be great to run ES Modules on node without Babel:
+    # 1. Build client bundle:
+    npm run build
 
-    # run in development mode
-    npm run esdev
+    # 2. Add "type": "module" to package.json
+
+    # 3. Replace named imports of external packages:
+    # import { h } from 'preact'
+    # with:
+    # import preact from 'preact'
+    # const { h } = preact 
     
-    # or run in production mode
-    npm run build 
+    # 4. Run production service
     npm run esstart
     
-    # open demo
-    npm run http://localhost:3000/
-
-Unfortunatelly it didn't work yet:
-
-* Named imports are not working for rollup-pluginutils and preact:
-   
-    `import { h } from 'preact'` does not work in node
-    `import preact from 'preact'; preact.h` does not work in rollup
-    
-* Flow types must not removed in node
-
+    # 5. Open demo
+    open http://localhost:3000/
