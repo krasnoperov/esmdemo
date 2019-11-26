@@ -3,8 +3,6 @@ import path from 'path'
 import Express from 'express'
 import http from 'http'
 import serveStatic from 'serve-static'
-import { watch } from 'rollup'
-import rollupConfig from '../rollup.config.js'
 import applyCJSLoader from './cjsloader.js'
 import { BASE_PATH } from './loadAssetsMeta.js'
 
@@ -25,6 +23,8 @@ async function main () {
   } else {
 
     // In Development run rollup to build client side bundle and static assets
+    const { watch } = (await import('rollup'))
+    const rollupConfig = (await import ('../rollup.config.js')).default
 
     watch(rollupConfig).on('event', event => {
       if (event.code === 'END') {

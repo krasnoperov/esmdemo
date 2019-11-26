@@ -1,6 +1,5 @@
 {
   "name": "esmdynamic",
-  "type": "module",
   "version": "1.0.0",
   "main": "app/index.js",
   "license": "MIT",
@@ -27,12 +26,12 @@
   },
   "scripts": {
     "start": "NODE_ENV=production node -r @babel/register backend/server.js",
-    "esstart": "NODE_ENV=production node --experimental-modules --experimental-loader=./backend/esmloader.js ./backend/server.js",
+    "esstart": "NODE_ENV=production node --experimental-loader=./backend/esmloader.js ./backend/server.js",
     "dev": "NODE_ENV=development node -r @babel/register backend/server.js",
-    "esdev": "NODE_ENV=development node --experimental-modules --experimental-loader=./backend/esmloader.js ./backend/server.js",
+    "esdev": "NODE_ENV=development node --experimental-loader=./backend/esmloader.js ./backend/server.js",
     "build": "rollup -c"
   },
   "engines": {
-    "node": "12.13.1"
+    "node": "13.2.0"
   }
 }

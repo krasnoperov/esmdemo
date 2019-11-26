@@ -10,7 +10,7 @@ Babel is used to process ESM imports and strip flow types on server-side.
 
 ## Run
 
-Make sure you are using LTS node version with ES Modules with flag.
+Make sure you are using latest node version with ES Modules without flag.
 
 Install dependencies:
 
