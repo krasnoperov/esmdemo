@@ -58,9 +58,7 @@ export async function dynamicInstantiate (url, a) {
     exports: ['default'],
     execute: (exports) => {
       exports.default.set(
-        path.join(STATIC_PATH,
-          staticFiles[path.relative(BASE_PATH, filename)]
-        )
+        staticFiles[path.relative(BASE_PATH, filename)]
       )
     }
   }
