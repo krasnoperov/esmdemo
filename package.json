@@ -32,6 +32,6 @@
     "build": "rollup -c"
   },
   "engines": {
-    "node": "13.2.0"
+    "node": "13.8.0"
   }
 }

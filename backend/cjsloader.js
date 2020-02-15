@@ -9,7 +9,7 @@ import { loadAssetsMeta, BASE_PATH } from './loadAssetsMeta.js'
 export default function () {
 
   if (process.env.ESM_ENABLED === 'yes') {
-    // Do not try yo alter require.extensions with ES Modules
+    // Do not try to alter require.extensions with ES Modules
     return
   }
 

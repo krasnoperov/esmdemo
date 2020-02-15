@@ -32,17 +32,11 @@ It is not as easy as to run with Babel, but still possible with some manipulatio
     npm run build
 
     # 2. Add "type": "module" to package.json
-
-    # 3. Replace named imports of external packages:
-    # import { h } from 'preact'
-    # with:
-    # import preact from 'preact'
-    # const { h } = preact 
     
-    # 4. Run production service
+    # 3. Run production service
     npm run esstart
     
-    # 5. Open demo
+    # 4. Open demo
     open http://localhost:3000/
 
 Limitations:

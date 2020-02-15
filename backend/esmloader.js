@@ -23,14 +23,33 @@ const EXTENSIONS = new Set([
 
 const BASE_URL = pathToFileURL(BASE_PATH).href
 
-export async function resolve (specifier, parentModuleURL = BASE_URL, defaultResolver) {
+export async function resolve (specifier, context, defaultResolver) {
+  const { parentURL = BASE_URL } = context;
   if (EXTENSIONS.has(path.extname(specifier))) {
     return {
-      url: (new URL(specifier, parentModuleURL)).href,
+      url: (parentURL) ? new URL(specifier, parentURL).href : new URL(specifier).href,
+      // format: 'dynamic'
+    }
+  }
+  return defaultResolver(specifier, context, defaultResolver)
+}
+
+export async function getFormat (specifier, context, defaultGetFormat) {
+  if (EXTENSIONS.has(path.extname(specifier))) {
+    return {
       format: 'dynamic'
     }
   }
-  return defaultResolver(specifier, parentModuleURL)
+  const format = defaultGetFormat(specifier, context, defaultGetFormat)
+
+  // TODO: remove when Node will detect preact as ESM module
+  if (specifier.endsWith("/node_modules/preact/dist/preact.module.js") && format.format !== 'module'){
+    return {
+      format: 'module'
+    }
+  }
+
+  return format
 }
 
 export async function dynamicInstantiate (url, a) {
