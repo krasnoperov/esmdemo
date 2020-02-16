@@ -20,6 +20,7 @@ export function App() {
       h('h1', {className: styles.header}, 'Header'),
       h('p', {className: styles.content}, 'Content'),
       h('img', {className: styles.img, src: image, width: 100, height: 100, alt:'Logo'}),
+      h('img', {className: styles.svgimg, src: image, width: 100, height: 100, alt:'Logo'}),
     )
   )
 

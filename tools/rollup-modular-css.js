@@ -49,6 +49,8 @@ export default function rollupModularCss (options = {}) {
 
   let processor
 
+  let handler
+
   return {
     name: '@modular-css/rollup',
 
@@ -61,13 +63,7 @@ export default function rollupModularCss (options = {}) {
         map,
         verbose,
         rewrite: {
-          url: (asset) => this.getAssetFileName(
-            this.emitFile({
-              type: 'asset',
-              name: path.basename(asset.url),
-              source: fs.readFileSync(asset.absolutePath),
-            })
-          ),
+          url: (asset) => handler(asset)
         },
         done: postcssrc.plugins,
       })
@@ -110,6 +106,14 @@ export default function rollupModularCss (options = {}) {
     async generateBundle (outputOptions, bundle) {
 
       log('Bundle')
+
+      handler = (asset) => this.getAssetFileName(
+        this.emitFile({
+          type: 'asset',
+          name: path.basename(asset.url),
+          source: fs.readFileSync(asset.absolutePath),
+        })
+      )
 
       // Store an easy-to-use Set that maps all the entry files
       const entries = new Set()

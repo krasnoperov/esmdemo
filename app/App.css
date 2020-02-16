@@ -15,3 +15,9 @@
 .image {
 
 }
+
+.svgimg {
+  background: url("./images/nodejs-icon.svg") 0 0 no-repeat;
+  width: 100px;
+  height: 100px;
+}
