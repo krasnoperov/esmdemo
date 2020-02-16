@@ -16,7 +16,7 @@
     "modular-css": "^8.1.1",
     "postcss": "^7.0.23",
     "postcss-load-config": "^2.1.0",
-    "preact": "^10.0.5",
+    "preact": "^10.3.2",
     "preact-render-to-string": "^5.1.1",
     "rollup": "^1.27.5",
     "rollup-plugin-babel": "^4.3.3",

@@ -26,8 +26,6 @@ Install dependencies:
 
 ### Run with ESM 
 
-It is not as easy as to run with Babel, but still possible with some manipulations:
-
     # 1. Build client bundle:
     npm run build
 
@@ -41,5 +39,5 @@ It is not as easy as to run with Babel, but still possible with some manipulatio
 
 Limitations:
 * Flow types are not stripped
-* Rollup and Node can't work with the same code because of different imports
+* ~~Rollup and Node can't work with the same code because of different imports~~
 * In development it is not possible to clear require cache and load new code for live edit
