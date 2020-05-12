@@ -21,11 +21,10 @@ import fs from 'fs'
 import postcssLoadConfig from 'postcss-load-config'
 import crypto from 'crypto'
 
-import { createFilter } from 'rollup-pluginutils'
-
 import Processor from '@modular-css/processor'
 import output from '@modular-css/processor/lib/output.js'
 import chunker from '@modular-css/rollup/chunker.js'
+import { createFilter } from '@rollup/pluginutils'
 
 export default function rollupModularCss (options = {}) {
   const {
