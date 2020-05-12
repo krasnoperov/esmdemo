@@ -5,6 +5,7 @@
 import fs from 'fs'
 import path from 'path'
 import process from 'process'
+import flowRemoveTypes from 'flow-remove-types'
 import { pathToFileURL, fileURLToPath, URL } from 'url'
 import { loadAssetsMeta, BASE_PATH } from './loadAssetsMeta.js'
 
@@ -40,17 +41,23 @@ export async function getFormat (specifier, context, defaultGetFormat) {
       format: 'dynamic'
     }
   }
-  const format = defaultGetFormat(specifier, context, defaultGetFormat)
+  return defaultGetFormat(specifier, context, defaultGetFormat)
+}
 
-  // TODO: remove when Node will detect preact as ESM module
-  if (specifier.endsWith("/node_modules/preact/dist/preact.module.js") && format.format !== 'module'){
+
+export function transformSource(source, context, defaultTransformSource) {
+  const { url, format } = context;
+
+  if (path.extname(url) === '.js') {
     return {
-      format: 'module'
+      source: flowRemoveTypes(source).toString()
     }
   }
 
-  return format
+  // Let Node.js handle all other sources.
+  return defaultTransformSource(source, context, defaultTransformSource);
 }
+
 
 export async function dynamicInstantiate (url, a) {
   const filename = fileURLToPath(url)

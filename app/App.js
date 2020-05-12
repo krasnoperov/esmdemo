@@ -12,9 +12,9 @@ import styles from './App.css'
 import image from './images/nodejs-icon.svg'
 
 // Type declaration must be stripped from code before execution
-// type Props = {}
+type Props = {}
 
-export function App() {
+export function App(props: Props) {
   return (
     h('div', { className: styles.app },
       h('h1', {className: styles.header}, 'Header'),
