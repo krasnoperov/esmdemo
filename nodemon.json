@@ -1,0 +1,6 @@
+{
+  "verbose": false,
+  "restartable": false,
+  "stdin": false,
+  "ignore": ["frontend/*", "app/*", "build/*"]
+}

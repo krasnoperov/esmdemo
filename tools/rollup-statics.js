@@ -4,10 +4,12 @@
  * TODO: publish in npm
  */
 
-import { createFilter } from '@rollup/pluginutils'
+import pluginutils from '@rollup/pluginutils'
 import path from 'path'
 import fs from 'fs'
 import process from 'process'
+
+const { createFilter } = pluginutils
 
 const defaultInclude = [
   '**/*.ico',

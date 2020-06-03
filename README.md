@@ -12,32 +12,17 @@ Install dependencies:
 
     npm install
 
-### Run with Babel
-
-    # run in development mode – rollup will be watching for changes
-    npm run dev
-    
-    # or run in production mode
-    npm run build 
-    npm run start
-    
-    # open demo
-    open http://localhost:3000/
-
-### Run with ESM 
+### Run with ESM in production
 
     # 1. Build client bundle:
     npm run build
-
-    # 2. Add "type": "module" to package.json
     
-    # 3. Run production service
-    npm run esstart
+    # 2. Run production service
+    npm run start
     
-    # 4. Open demo
+    # 3. Open demo
     open http://localhost:3000/
+    
+### Run with ESM in development
 
-Limitations:
-* ~~Flow types are not stripped~~
-* ~~Rollup and Node can't work with the same code because of different imports~~
-* In development it is not possible to clear require cache and load new code for live edit
+    npm run dev

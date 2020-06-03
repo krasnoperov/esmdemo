@@ -24,7 +24,8 @@ import crypto from 'crypto'
 import Processor from '@modular-css/processor'
 import output from '@modular-css/processor/lib/output.js'
 import chunker from '@modular-css/rollup/chunker.js'
-import { createFilter } from '@rollup/pluginutils'
+import pluginutils from '@rollup/pluginutils'
+const { createFilter } = pluginutils
 
 export default function rollupModularCss (options = {}) {
   const {

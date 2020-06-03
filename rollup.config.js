@@ -34,7 +34,7 @@ export default [
       statics({ staticPath: STATIC_PATH }),
 
       // Strip flow types from source code, no other transformations are applied
-      babel({
+      babel.babel({
         configFile: false,
         babelrc: false,
         compact: true,
